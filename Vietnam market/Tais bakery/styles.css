@@ -1,0 +1,716 @@
+
+/* Shrinking sticky header */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: all 0.3s cubic-bezier(.4,2,.6,1);
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+.header-shrink {
+    padding: 6px 0 6px 0 !important;
+    background: #29282c;
+    border-radius: 0 0 18px 18px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.header-shrink .nav-links {
+    font-size: 1.1em;
+    margin-right: 3vw;
+    justify-content: flex-end;}
+.header-shrink .logo {
+    display: none !important;
+}
+@media (max-width: 700px) {
+    .header-shrink .nav-links {
+        margin-right: 1vw;
+        font-size: 1em;
+    }
+}
+.header nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.header .logo {
+    transition: opacity 0.3s;
+}
+.header .nav-links {
+    transition: font-size 0.3s;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Space Grotesk', sans-serif;
+}
+body {
+    background-color: #f0f0f0;
+    color: #333;
+    line-height: 1.6;
+}
+header {
+    background-color: #29282c;
+    color: red;
+    padding: 20px;
+    text-align: center;
+    width: 98%;
+    align-items: center;
+    margin: auto;
+    border-radius: 30px;
+}
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+ 
+}
+li {
+    margin: 0 15px;
+    justify-content: center;
+    font-size: 1.2em;
+    
+}
+ header a {
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+   
+}
+ header a:hover {
+    color: #ffffff;
+    background-color: #f7bb0e;
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+.hero{
+    position: relative;
+  
+    width: 98%;
+    margin-left: 12.5px;
+    margin-top: 12.5px;
+    border-radius: 30px;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #f7bb0e;
+    padding: 20px;
+    overflow: hidden; /* Ensure overlay stays inside */
+}
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+   
+    z-index: 1;
+}
+.hero > * {
+    position: relative;
+    z-index: 2;
+}
+.hero h2 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+.hero p {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #29282c;
+}
+.btn{
+    background-color: #f7bb0e;
+    color: #29282c;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+.btn:hover {
+    background-color: #e0a800;
+    transform: scale(1.05);
+}
+span{
+    font-weight: bold;
+    color: #e0a800;
+}
+.about {
+    padding: 20px;
+    width: 98%;
+    height: 400px;
+    margin-left: 12.5px;
+    background-color: #f9d37c;
+    border-radius: 30px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-top: 20px;
+    
+   
+
+}
+.about-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    
+    
+    text-align: center;
+}
+.about .img{
+    width: 400px;
+    height: 330px;
+    background-image: url(WhatsApp\ Image\ 2025-08-09\ at\ 11.45.23_54b4aac5.jpg);
+    background-position: center;
+    background-size: cover;
+    border-radius: 30px 30px 30px 30px;
+}
+.about .texts {
+    max-width: 500px;
+    margin-left: 100px;
+    margin-top: 100px;
+    text-align: left;
+
+}
+.about h2 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    text-align: left;
+    color: red;
+    font-weight: bold;
+}
+.about p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #555;
+    text-align: left;
+}
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 98%;
+    margin-left: 12.5px;
+    margin-top: 20px;
+}
+
+.menu-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+.menu-item {
+    background-color: #000000;
+    border-radius: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    height: 300px;
+}
+.menu-item1{
+    background-image: url(download\ \(16\).jpeg);
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(download\ \(16\).jpeg);
+    background-position: center;
+    background-size: cover;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    width: 500px;
+    height: 400px;
+}
+.menu-item2{
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(Vietnam\ market.jpeg);
+    background-position: center;
+    background-size: cover;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    width: 500px;
+    height: 400px;
+}
+.menu-item1 h3{
+
+    color: #e0a800;
+    font-size: 50px ;
+   
+    text-decoration: none;
+
+}
+.menu-item1 p{
+    color: #f0f0f0;
+    font-size: 15px;
+    line-height: 1.5;
+    margin: 30px;
+}
+.menu-item1 button {
+    background-color: #f7bb0e;
+    color: #29282c;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 5px;
+}
+.menu-item1 button:hover {
+    background-color: #e0a800;
+    transform: scale(1.05);
+}
+.menu-item2 h3{
+    color: #e0a800;
+    font-size: 50px ;
+   
+    text-decoration: none;
+
+}
+.menu-item2 p{
+    color: #f0f0f0;
+    font-size: 15px;
+    line-height: 1.5;
+    margin: 30px;
+}
+.menu-item2 button {
+    background-color: #f7bb0e;
+    color: #29282c;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 5px;
+    margin-top: 43px;
+}
+.menu-item2 button:hover {
+    background-color: #e0a800;
+    transform: scale(1.05);
+}
+.menu-item2 button a {
+    color: #29282c;
+    text-decoration: none;
+}
+.menu-item1 button a {
+    color: #29282c;
+    text-decoration: none;
+}
+.contact-section {
+    background: #ffffff;
+    border-radius: 30px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    width: 98%;
+    margin: 30px auto 30px auto;
+    padding: 40px 20px 30px 20px;
+    display: flex;
+    
+    flex-direction: column;
+    align-items: center;
+}
+.contactsec{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+}
+.contact-forms{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    margin-left: 100px;
+}
+.contact-section h2 {
+    color: #e0a800;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 400px;
+    background: #ffd50075;
+    padding: 25px 20px;
+    border-radius: 20px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+    margin-bottom: 25px;
+}
+.contact-form label {
+    font-weight: 600;
+    color: #f7bb0e;
+    margin-bottom: 3px;
+    font-size: 1.1em;
+}
+.contact-form input,
+.contact-form textarea {
+    padding: 10px;
+    border: 1px solid #f7bb0e;
+    border-radius: 8px;
+    font-size: 1em;
+    background: #fff;
+    color: #333;
+    transition: border 0.2s;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border: 2px solid #e0a800;
+    outline: none;
+}
+.contact-form button {
+    background: linear-gradient(90deg, #f7bb0e 60%, #e0a800 100%);
+    color: #29282c;
+    border: none;
+    padding: 12px 0;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+    transition: background 0.2s, transform 0.2s;
+    margin-top: 40px;
+}
+.contact-form button:hover {
+    background: linear-gradient(90deg, #e0a800 60%, #f7bb0e 100%);
+    transform: scale(1.04);
+}
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 400px;
+    font-size: 1.1em;
+    color: #333;
+    margin-right: 200px;
+}
+.contact-details .email{
+    background-color: rgba(236, 58, 58, 0.468);
+    padding: 40px;
+    border-radius: 10px;
+    width: 400px;
+}
+.contact-details .email button{
+    background-color: #ff2a006e;
+    padding: 7px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+}   
+
+.contact-details .email i{
+    color: #6e0606;
+    
+}
+.contact-details .email p {
+    margin: 0;
+    font-size: 1.1em;
+    color: #333;
+    margin-top: 10px;
+}
+.contact-details .email2{
+    background-color: rgba(2, 23, 165, 0.468);
+    padding: 40px;
+    border-radius: 10px;
+    width: 400px;
+}
+.contact-details .email2 button{
+    background-color: #12065c6e;
+    padding: 7px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+}   
+
+.contact-details .email2 i{
+    color: #020c50;
+    
+}
+.contact-details .email2 p {
+    margin: 0;
+    font-size: 1.1em;
+    color: #333;
+    margin-top: 10px;
+}
+.contact-details .email3{
+    background-color: rgba(123, 236, 58, 0.468);
+    padding: 40px;
+    border-radius: 10px;
+    width: 400px;
+}
+.contact-details .email3 button{
+    background-color: #00ff446e;
+    padding: 7px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+}   
+
+.contact-details .email3 i{
+    color: #055221;
+    
+}
+.contact-details .email3 p {
+    margin: 0;
+    font-size: 1.1em;
+    color: #333;
+    margin-top: 10px;
+}
+
+@media (max-width: 600px) {
+    *{
+        box-sizing: border-box;
+    }
+     .header nav, .header-shrink nav {
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        margin: auto;
+
+    }
+    .header .logo, .header-shrink .logo {
+        order: -1;
+        margin-bottom: 8px;
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin: auto;
+    }
+    .header .nav-links, .header-shrink .nav-links {
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        margin: 0;
+        gap: 0;
+        margin: auto;
+    }
+    .header {
+        flex-direction: column;
+       
+        padding: 10px;
+        margin: auto;
+
+    }
+    .logo {
+        width: 50px;
+        height: 50px;
+        margin-right: 10px;
+    }
+    .header .nav-links {
+        font-size: 0.7em;
+        margin-right: 3vw;
+        justify-content: flex-end;
+        
+    }
+    .header-shrink {
+        padding: 5px 10px;
+    }
+    .menu-item1, .menu-item2 {
+        width: 96%;
+        height: auto;
+        padding: 20px;
+        margin-right: 5px;
+    }
+    .about .img {
+        width: 200px;
+        height: 250px;
+        margin-bottom: 20px;
+    }
+    .about .texts {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+    .about-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .about{
+        height: auto;
+    }
+    .header{
+        height: auto;
+        padding: 10px;
+        width: 100%;
+        margin: auto;
+    }
+    .contactsec{
+        flex-direction: column;
+        align-items: center;
+        margin: 20px auto;
+
+    }
+    .contact-forms {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin-left: 0;
+    }
+    .contact-form {
+        width: 100%;
+        max-width: 90%;
+        margin-bottom: 20px;
+    }
+    .email, .email2, .email3 {
+        width: 100%;
+        max-width: 90%;
+        margin: 20px auto;
+        padding: 10px;
+
+    }
+    .contact-details {
+        width: 100%;
+        max-width: 90%;
+        margin: 20px auto;
+        gap: 10px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: center;
+
+    }
+    .about{
+        flex-direction: column;
+        align-items: center;
+        margin: auto;
+        margin-top: 100px;
+    }
+    .about .img {
+        width: 98%;
+        height: 300px;
+    }
+    .about-content{
+        gap: 20px;
+    }
+    .about-content .texts {
+        text-align: center;
+    }
+    .about-content .texts h2{
+        font-size: 25px;
+    }
+    .about-content .texts p {
+        font-size: 16px;
+    }
+    .about-content .texts{
+        margin: auto;
+        max-width: 600px;
+    }
+    .contact-forms {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin-left: 0;
+    }
+    .contact-form {
+        width: 100%;
+        max-width: 90%;
+        margin-top: 40px;
+        height: 590px;
+       
+
+    }
+    .email, .email2, .email3 {
+        width: 200px;
+        max-width: 90%;
+        margin: 20px auto;
+        padding: 10px;
+
+    }
+    .contact-details {
+        width: 100%;
+        max-width: 90%;
+        margin: 20px auto;
+        gap: 10px;
+    }
+
+}
+@media screen and (max-width: 900px) {
+    .header {
+        flex-direction: column;
+        align-items: center;
+
+    }
+    .about{
+        flex-direction: column;
+        align-items: center;
+        margin: auto;
+        margin-top: 100px;
+    }
+    .about .img {
+        width: 98%;
+        height: 300px;
+    }
+    .about-content{
+        gap: 20px;
+    }
+    .about-content .texts {
+        text-align: center;
+    }
+    .about-content .texts h2{
+        font-size: 25px;
+    }
+    .about-content .texts p {
+        font-size: 16px;
+    }
+    .about-content .texts{
+        margin: auto;
+        max-width: 600px;
+    }
+    .contact-forms {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin-left: 0;
+    }
+    .contact-form {
+        width: 100%;
+        max-width: 90%;
+        margin-top: 40px;
+        height: 590px;
+       
+
+    }
+    .email, .email2, .email3 {
+        width: 200px;
+        max-width: 90%;
+        margin: 20px auto;
+        padding: 10px;
+
+    }
+    .contact-details {
+        width: 100%;
+        max-width: 90%;
+        margin: 20px auto;
+        gap: 10px;
+    }
+
+}

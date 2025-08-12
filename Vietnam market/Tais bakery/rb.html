@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retail booking menu</title>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Space+Grotesk:wght@300..700&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="rb.css">
+</head>
+<body>
+   <header class="header">
+        <nav>
+            <div class="logo" id="headerLogo">
+                <h1>Retail Booking</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html"> Home</a></li>
+                <li><a href="index.html#about"> About</a></li>
+                <li><a href="index.html#menu"> Menu</a></li>
+                <li><a href="index.html#contact"> Contact</a></li>
+            </ul>
+        </nav>
+
+
+    </header>
+    <main>
+        <section class="menu">
+            <h2>Menu Items</h2>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="mipic"></div>
+                    <h3>300g </h3>
+                    <p>290N</p>
+                    <label>Qty:
+                        <select class="qty-input">
+                            <option value="80">80</option>
+                            <option value="100">100</option>
+                            <option value="150">150</option>
+                            <option value="200">200</option>
+                        </select>
+                    </label>
+                    <button>Book Now</button>
+                </div>
+                <div class="menu-item">
+                    <div class="mipic"></div>
+                    <h3>500g </h3>
+                    <p>480N</p>
+                    <label>Qty:
+                        <select class="qty-input">
+                            <option value="80">80</option>
+                            <option value="100">100</option>
+                            <option value="150">150</option>
+                            <option value="200">200</option>
+                        </select>
+                    </label>
+                    <button>Book Now</button>
+                </div>
+                <div class="menu-item">
+                    <div class="mipic"></div>
+                    <h3>800g </h3>
+                    <p>770N</p>
+                    <label>Qty:
+                        <select class="qty-input">
+                            <option value="80">80</option>
+                            <option value="100">100</option>
+                            <option value="150">150</option>
+                            <option value="200">200</option>
+                        </select>
+                    </label>
+                    <button>Book Now</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="cart" class="cart-section">
+            <h2>Your Cart</h2>
+            <div class="cart-items">
+                <!-- Cart items will appear here -->
+                <p>Your cart is empty.</p>
+            </div>
+            <div class="cart-summary">
+                <p>Total: <span id="cart-total">0N</span></p>
+                <button type="button" id="checkout-btn" disabled>Checkout & Order</button>
+                <button type="button" id="clear-cart-btn" style="margin-left:10px; background:#fff; color:#d18b00; border:1.5px solid #f7bb0e;">Clear Cart</button>
+            </div>
+        </section>
+
+        <section id="order-section" class="checkout-section" style="display:none;">
+            <h2>Order Details</h2>
+            <div id="order-items"></div>
+            <form id="order-form">
+                <label for="order-notes">Notes (optional):</label><br>
+                <textarea id="order-notes" name="Notes" rows="2" cols="30"></textarea><br>
+                <label for="customer-name">Name:</label><br>
+                <input type="text" id="customer-name" name="Name" required><br>
+                <label for="customer-phone">Phone Number:</label><br>
+                <input type="tel" id="customer-phone" name="Phone" required><br>
+                <label for="customer-email">Email:</label><br>
+                <input type="email" id="customer-email" name="Email" required><br>
+                <label for="customer-address">Address:</label><br>
+                <input type="text" id="customer-address" name="Address" required><br>
+                <p>Total: <span id="order-total">0N</span></p>
+                <button type="submit" id="send-order-btn">Send Order</button>
+                <button type="button" id="cancel-order-btn" style="margin-left:10px; background:#fff; color:#d18b00; border:1.5px solid #f7bb0e;">Cancel</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
+<script>
+// Simple cart logic for demonstration
+
+
+const cart = [];
+const cartItemsDiv = document.querySelector('.cart-items');
+const cartTotalSpan = document.getElementById('cart-total');
+const checkoutBtn = document.getElementById('checkout-btn');
+const clearCartBtn = document.getElementById('clear-cart-btn');
+const menuButtons = document.querySelectorAll('.menu-item button');
+const qtyInputs = document.querySelectorAll('.menu-item .qty-input');
+const orderSection = document.getElementById('order-section');
+const orderItemsDiv = document.getElementById('order-items');
+const orderTotalSpan = document.getElementById('order-total');
+const orderForm = document.getElementById('order-form');
+const cancelOrderBtn = document.getElementById('cancel-order-btn');
+
+function updateCartDisplay() {
+    if (cart.length === 0) {
+        cartItemsDiv.innerHTML = '<p>Your cart is empty.</p>';
+        cartTotalSpan.textContent = '0N';
+        checkoutBtn.disabled = true;
+    } else {
+        cartItemsDiv.innerHTML = cart.map(item => `<p>${item.name} - ${item.price}N (x${item.qty})</p>`).join('');
+        const total = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+        cartTotalSpan.textContent = total + 'N';
+        checkoutBtn.disabled = false;
+    }
+
+    // Disable Book Now buttons for items/quantities already in cart
+    menuButtons.forEach((btn, idx) => {
+        const names = ['300g', '500g', '800g'];
+        const qty = parseInt(qtyInputs[idx].value) || 80;
+        const found = cart.find(item => item.name === names[idx] && item.qty === qty);
+        btn.disabled = !!found;
+    });
+    // Hide order section if cart changes
+    orderSection.style.display = 'none';
+}
+
+menuButtons.forEach((btn, idx) => {
+    btn.addEventListener('click', () => {
+        const names = ['300g', '500g', '800g'];
+        const prices = [290, 480, 770];
+        const qty = parseInt(qtyInputs[idx].value) || 80;
+        if (qty < 1) return;
+        const found = cart.find(item => item.name === names[idx] && item.qty === qty);
+        if (!found) {
+            cart.push({ name: names[idx], price: prices[idx], qty });
+        }
+        updateCartDisplay();
+    });
+
+    // Also update button state when quantity changes
+    qtyInputs[idx].addEventListener('change', () => {
+        updateCartDisplay();
+    });
+});
+
+// Clear cart functionality
+clearCartBtn.addEventListener('click', () => {
+    cart.length = 0;
+    // Reset all quantity selects to 80
+    qtyInputs.forEach(input => input.value = 80);
+    updateCartDisplay();
+});
+
+
+// Show order section on checkout
+checkoutBtn.addEventListener('click', () => {
+    if (cart.length === 0) return;
+    // Fill order items
+    orderItemsDiv.innerHTML = cart.map(item => `<p>${item.name} - ${item.price}N (x${item.qty})</p>`).join('');
+    orderTotalSpan.textContent = cart.reduce((sum, item) => sum + item.price * item.qty, 0) + 'N';
+    orderSection.style.display = 'block';
+    window.scrollTo({ top: orderSection.offsetTop - 40, behavior: 'smooth' });
+});
+
+// Cancel order
+cancelOrderBtn.addEventListener('click', () => {
+    orderSection.style.display = 'none';
+});
+
+// Send order via email
+orderForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    // Validate required fields (HTML5 will do this, but double check)
+    const name = document.getElementById('customer-name').value.trim();
+    const phone = document.getElementById('customer-phone').value.trim();
+    const email = document.getElementById('customer-email').value.trim();
+    const address = document.getElementById('customer-address').value.trim();
+    if (!name || !phone || !email || !address) return;
+    let body = 'Order Details:%0D%0A';
+    cart.forEach(item => {
+        body += `${item.name} - ${item.price}N (x${item.qty})%0D%0A`;
+    });
+    body += `Total: ${cart.reduce((sum, item) => sum + item.price * item.qty, 0)}N%0D%0A`;
+    const notes = document.getElementById('order-notes').value;
+    if (notes) body += `Notes: ${notes}%0D%0A`;
+    body += `Name: ${name}%0D%0A`;
+    body += `Phone: ${phone}%0D%0A`;
+    body += `Email: ${email}%0D%0A`;
+    body += `Address: ${address}%0D%0A`;
+    window.location.href = `mailto:yourbakery@email.com?subject=New Party Booking Order&body=${body}`;
+});
+
+updateCartDisplay();
+</script>

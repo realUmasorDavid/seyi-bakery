@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tai's Bakery</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Space+Grotesk:wght@300..700&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    
+</head>
+<body>
+    <header class="header">
+        <nav>
+            <div class="logo" id="headerLogo">
+                <h1>Tai's Bakery</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home"> Home</a></li>
+                <li><a href="#about"> About</a></li>
+                <li><a href="#menu"> Menu</a></li>
+                <li><a href="#contact"> Contact</a></li>
+            </ul>
+        </nav>
+
+
+    </header>
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>Welcome to Tai's Bakery</h2>
+            <p>Freshly baked <span>🍞 Bread</span> made with ❤️ love</p>
+            <a href="#menu" class="btn">View Menu</a>
+        </div>
+
+    </section>
+
+        
+
+    <section id="about" class="about">
+        <div class="about-content">
+            <div class="img"></div>
+            <div class="texts">
+                <h2>About Us</h2>
+                <p>At Tai's Bakery, we believe in the art of baking. 🥖 Our breads are crafted with the finest ingredients and baked to perfection. 👩‍🍳</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="menu">
+        <h2>Our Menu</h2>
+    <span style="font-size:2em;"></span>
+    <div class="menu-items">
+            <div class="menu-item1">
+                <h3>Party booking</h3>
+                <p>
+    🎉 Menu for customers who wish to share our freshly baked bread as gifts to their guests. Whether you're hosting a party, wedding, or special event, our bakery offers a delightful selection of breads beautifully packaged and perfect for sharing. Surprise your guests with the warmth and aroma of artisan bread, made fresh daily and tailored to your celebration.
+</p>      
+<button><a href="pb.html">view menu</a></button>
+
+            </div>
+
+            <div class="menu-item2">
+                <h3>Retail booking</h3>
+                <p>🛒 Menu for customers who wish to resell our freshly baked bread. Ideal for cafes, restaurants, or shops seeking to offer high-quality, artisan breads. Enjoy flexible orders, wholesale pricing, and reliable delivery from Tai's Bakery.</p>
+                <button ><a href="rb.html">view menu</a></button>
+            </div>
+
+
+
+    </section>
+    <section id="contact" class="contact-section">
+            <h2>Contact Us</h2>
+            <div class="contactsec">
+            <div class="contact-forms">
+            <form class="contact-form" action="mailto:yourbakery@email.com" method="POST" enctype="text/plain">
+                <label for="name">👤 Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">✉️ Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">💬 Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+                <button type="submit">📨 Send Message</button>
+            </form>
+        </div>
+            <div class="contact-details">
+                <div class="email">
+                   <button><i class="fa-solid fa-envelope"></i></button>
+                    <p>Taisbakery@gmail.com</p>
+                </div>
+                 <div class="email2">
+                   <button><i class="fa-solid fa-phone"></i></button>
+                    <p>+(234) 802 304 7669</p>
+                </div>
+                 <div class="email3">
+                   <button><i class="fa-solid fa-location-dot"></i></button>
+                    <p> Beside Igbe oloja central mosque, ikorodu lagos</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+    <script>
+    // Shrinking sticky header: hide logo and shrink header on scroll up from hero
+    const header = document.querySelector('.header');
+    const logo = document.getElementById('headerLogo');
+    const hero = document.querySelector('.hero');
+    function handleHeaderShrink() {
+        const heroBottom = hero.getBoundingClientRect().bottom + window.scrollY;
+        if (window.scrollY > heroBottom - 60) {
+            header.classList.add('header-shrink');
+            logo.style.display = 'none';
+        } else {
+            header.classList.remove('header-shrink');
+            logo.style.display = '';
+        }
+    }
+    window.addEventListener('scroll', handleHeaderShrink);
+    </script>
+</html>
