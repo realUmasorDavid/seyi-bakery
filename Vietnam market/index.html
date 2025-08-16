@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tai's Bakery </title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Space+Grotesk:wght@300..700&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">Tai's Bakery</h1>
+      <button class="nav-toggle" aria-label="Open navigation menu">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+      <nav class="nav">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        
+        
+        <a href="#partnership">Partner With Us</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h2>Freshly Baked with Love</h2>
+      <p>Artisan breads, pastries, and more — made daily at Tais Bakery.</p>
+      <a href="#products" class="btn">Explore</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section about">
+    <div class="container">
+      <h2>About Tai's Bakery</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <p>Founded in 2020, Tais Bakery is a family-owned artisan bakery located in the heart of the city. We believe in simple ingredients, traditional techniques, and the warmth of fresh bread.</p>
+          <p>Every loaf is handcrafted using locally sourced flour and natural fermentation. Our mission is to bring the joy of real bread to every table.</p>
+        </div>
+        <div class="about-image">
+          <img src="WhatsApp Image 2025-08-09 at 11.45.23_54b4aac5.jpg" alt="Bakery interior" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section id="products" class="section products">
+    <div class="container">
+     
+      <div class="product-grid">
+        <div class="product-card">
+          <img src="bakersssa.jpg" alt="Sourdough Loaf">
+        </div>
+        <div class="product-card">
+          <img src="bakers.jpg" alt="Bakery Interior">
+        </div>
+        <div class="product-card">
+          <img src="bkr work.jpg" alt="Specialty Bread">
+        </div>
+        <div class="product-card">
+          <img src="bakerss.jpg" alt="Whole Wheat">
+        </div>
+        <div class="product-card">
+          <img src="bakersss.jpg" alt="Baguette">
+          
+        </div>
+        <div class="product-card">
+          <img src="tais bakery image 1.jpg" alt="Pastry Selection">
+        </div>
+      </div>
+    </div>
+    <script>
+      const navToggle = document.querySelector('.nav-toggle');
+      const nav = document.querySelector('.nav');
+      navToggle.addEventListener('click', () => {
+        nav.classList.toggle('open');
+      });
+    </script>
+  </section>
+
+  <!-- Partnership Section -->
+  <section id="partnership" class="section partnership">
+    <div class="container">
+      <h5>Partner With Us</h5 >
+      <p>We're always looking to grow our community of suppliers, landlords, and collaborators. Whether you can provide high-quality ingredients or a new retail space, we'd love to hear from you.</p>
+      <div class="partner-options">
+        <div class="option">
+          <h3>Supply Opportunities</h3>
+          <p>We source flour, grains, dairy, and packaging from trusted local partners.</p>
+        </div>
+        <div class="option">
+          <h3>Retail or Production Space</h3>
+          <p>Interested in leasing a commercial kitchen or storefront? Let's talk.</p>
+        </div>
+      </div>
+      <a href="#contact" class="btn btn-outline">Get in Touch</a>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section contact">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <p>Have questions or want to partner with Tais Bakery? Reach out below.</p>
+      <form id="contact-form" action="https://formspree.io/f/xwpqjebq" method="post">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <select name="interest" required>
+          <option value="" disabled selected>I'm interested in...</option>
+          <option value="supply">Becoming a Supplier</option>
+          <option value="space">Leasing Space (Landlord)</option>
+          <option value="general">General Inquiry</option>
+        </select>
+        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Tais Bakery. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+      </div>
+    </div>
+  </footer>
+
+
+</body>
+</html>
